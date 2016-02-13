@@ -98,7 +98,11 @@ public class InfoList extends JComponent {
 			totalSizeLabel.setText(torrentManager.getTorrentInfo(TorrentData.SIZE, hash).toString());
 			creationDateLabel.setText(torrentManager.getTorrentInfo(TorrentData.CREATION_DATE, hash).toString());
 			hashLabel.setText(torrentManager.getTorrentInfo(TorrentData.HASH, hash).toString());
-			commentLabel.setText(torrentManager.getTorrentInfo(TorrentData.COMMENT, hash).toString());
+			try{
+				commentLabel.setText(torrentManager.getTorrentInfo(TorrentData.COMMENT, hash).toString());
+			} catch(Exception e) {
+				commentLabel.setText(null);
+			}
 		} else {
 			labelSaveAsLabel.setText(null);
 			totalSizeLabel.setText(null);
@@ -114,7 +118,11 @@ public class InfoList extends JComponent {
 			totalSizeLabel.setText(data.getInfo(TorrentData.SIZE).toString());
 			creationDateLabel.setText(data.getInfo(TorrentData.CREATION_DATE).toString());
 			hashLabel.setText(data.getInfo(TorrentData.HASH).toString());
-			commentLabel.setText(data.getInfo(TorrentData.COMMENT).toString());
+			try {
+				commentLabel.setText(data.getInfo(TorrentData.COMMENT).toString());
+			}catch(Exception e) {
+				commentLabel.setText(null);
+			}
 		} else {
 			labelSaveAsLabel.setText(null);
 			totalSizeLabel.setText(null);
